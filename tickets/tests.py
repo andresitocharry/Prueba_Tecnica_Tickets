@@ -3,13 +3,14 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import Ticket, Categoria
 
+
 class TicketSecurityTests(TestCase):
     def setUp(self):
         # Crear categorías y usuarios de prueba
         self.cat = Categoria.objects.create(nombre="Soporte")
         self.user_a = User.objects.create_user(username='user_a', password='password123')
         self.user_b = User.objects.create_user(username='user_b', password='password123')
-        
+
         # Crear un ticket para el usuario A
         self.ticket_a = Ticket.objects.create(
             usuario=self.user_a,
@@ -41,13 +42,14 @@ class TicketSecurityTests(TestCase):
             descripcion="Privado",
             categoria=self.cat
         )
-        
+
         self.client.login(username='user_a', password='password123')
         response = self.client.get(reverse('ticket_listar'))
-        
+
         # En la lista de A solo debe haber 1 ticket (el suyo)
         self.assertEqual(len(response.context['tickets']), 1)
         self.assertEqual(response.context['tickets'][0].titulo, "Ticket de A")
+
 
 class RegistrationTests(TestCase):
     def test_user_registration(self):
@@ -59,10 +61,10 @@ class RegistrationTests(TestCase):
             'password2': 'ComplexPass123!'
         }
         response = self.client.post(url, data)
-        
+
         # Debe redirigir al login (302)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response.url, reverse('login'))
-        
+
         # Verificar que el usuario existe en la BD
         self.assertTrue(User.objects.filter(username='nuevo_usuario').exists())
