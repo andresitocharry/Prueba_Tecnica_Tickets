@@ -27,6 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-^^f_@ffd8+31l#$sgzrsk
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://prueba-tecnica-tickets.onrender.com']
 
 
 # Application definition
