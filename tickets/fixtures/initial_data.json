@@ -42,10 +42,10 @@
   "model": "auth.user",
   "pk": 2,
   "fields": {
-    "password": "pbkdf2_sha256$600000$guic8rz6jMRyoJmnkCVRTp$L4aqqId0Oe7O3Z0W7igqA6PCo5BPDgvsQ1Oj3z6S89E=",
+    "password": "pbkdf2_sha256$600000$8FHLI2UtiWOTv2yGavvvT9$xxq55sUskUkmolYW9Q90mLYSo1bu9kZrmFkFhPmkP/0=",
     "last_login": null,
     "is_superuser": false,
-    "username": "usuario_test",
+    "username": "test2",
     "first_name": "",
     "last_name": "",
     "email": "test@example.com",

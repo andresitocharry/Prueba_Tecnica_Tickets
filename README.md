@@ -124,12 +124,8 @@ Se ha implementado una interfaz moderna utilizando:
 Para facilitar la revisión, se han incluido los siguientes usuarios:
 
 ### Administrador (Acceso a /admin/)
-- **Usuario:** `admin`
-- **Contraseña:** `admin123`
-
-### Usuario Estándar (Acceso a la plataforma de tickets)
-- **Usuario:** `usuario_test`
-- **Contraseña:** `password123`
+- **Admin:** `admin` / `admin123`
+- **Usuario de Prueba:** `test2` / `admin123`
 
 ---
 
