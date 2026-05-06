@@ -20,8 +20,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar el proyecto
 COPY . /app/
 
-# Exponer el puerto
-EXPOSE 8000
+# Dar permisos de ejecución al script de inicio
+RUN chmod +x /app/start.sh
 
-# Comando para iniciar la aplicación
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Ejecutar collectstatic para los archivos CSS/JS
+RUN python manage.py collectstatic --no-input
+
+# Exponer el puerto
+EXPOSE 10000
+
+# Usar el script de inicio
+CMD ["/app/start.sh"]
