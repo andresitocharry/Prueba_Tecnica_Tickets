@@ -5,7 +5,8 @@
   "main": "manage.py",
   "scripts": {
     "docker:local": "docker-compose up --build",
-    "test": "python manage.py test tickets"
+    "test": "python manage.py test tickets",
+    "lint": "flake8 ."
   },
   "author": "Andres Felipe Charry Camacho",
   "license": "ISC"

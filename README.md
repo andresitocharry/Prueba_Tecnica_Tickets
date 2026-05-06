@@ -84,6 +84,20 @@ python manage.py test tickets
 
 ---
 
+## Calidad de Código (Linting)
+
+Para asegurar que el código cumple con los estándares **PEP8**, puede ejecutar el linter:
+
+```bash
+# Usando npm
+npm run lint
+
+# O directamente con flake8
+flake8 .
+```
+
+---
+
 ## Interfaz y Diseño
 
 Se ha implementado una interfaz moderna utilizando:

@@ -14,6 +14,9 @@ Para asegurar que el proyecto funcione en cualquier entorno sin conflictos de de
 
 Además, siguiendo las mejores prácticas que aplico en mi experiencia profesional actual (Programa Madre Canguro), implementé una orquestación de comandos mediante `package.json`. Esto permite usar comandos estandarizados como `npm run docker:local` para levantar el ambiente de pruebas de forma consistente entre todos los miembros del equipo, y facilita el despligue en un entorno de producción.
 
+### Calidad de Código
+Para garantizar un código limpio y profesional, se configuró **Flake8** como linter. El proyecto sigue los estándares de la guía de estilo **PEP8**, lo cual se puede verificar ejecutando el comando `npm run lint`. Esto asegura que el código sea mantenible y libre de errores de formato o lógica básica.
+
 ### Enfoque en UX/UI
 Aunque el sistema es sencillo, se puso especial cuidado en la interfaz para que fuera profesional y moderna:
 *   **Tipografía:** Uso de 'Inter' vía Google Fonts para una lectura más clara y estética.
