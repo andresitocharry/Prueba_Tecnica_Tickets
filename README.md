@@ -50,6 +50,26 @@ El sistema estará disponible en `http://127.0.0.1:8000/`.
 
 ---
 
+## Ejecución de Tests
+
+Para verificar la integridad del sistema y las reglas de seguridad (privacidad de tickets y acceso), ejecute el siguiente comando:
+
+```bash
+python manage.py test tickets
+```
+
+---
+
+## Interfaz y Diseño
+
+Se ha implementado una interfaz moderna utilizando:
+- **Bootstrap 5** con personalización de estilos CSS.
+- **FontAwesome** para iconografía.
+- **Google Fonts (Inter)** para mejorar la legibilidad.
+- Diseño responsivo compatible con dispositivos móviles.
+
+---
+
 ## Credenciales de Prueba
 
 Para facilitar la revisión, se han incluido los siguientes usuarios:
