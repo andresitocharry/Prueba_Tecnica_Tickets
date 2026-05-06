@@ -1,7 +1,55 @@
 {% extends 'base.html' %}
 
+{% block title %}Mis Tickets - TicketSys{% endblock %}
+
 {% block content %}
-<h2>Mis Tickets</h2>
-<p>Aquí aparecerá la lista de tus tickets pronto.</p>
-<a href="{% url 'ticket_crear' %}" class="btn btn-success">Crear Nuevo Ticket</a>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Mis Tickets</h2>
+    <a href="{% url 'ticket_crear' %}" class="btn btn-success">Crear Nuevo Ticket</a>
+</div>
+
+<div class="card shadow">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Título</th>
+                    <th>Categoría</th>
+                    <th>Estado</th>
+                    <th class="text-center">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.fecha_creacion|date:"d/m/Y H:i" }}</td>
+                        <td>{{ ticket.titulo }}</td>
+                        <td><span class="badge bg-secondary">{{ ticket.categoria.nombre }}</span></td>
+                        <td>
+                            {% if ticket.estado == 'abierto' %}
+                                <span class="badge bg-info text-dark">Abierto</span>
+                            {% elif ticket.estado == 'en_espera' %}
+                                <span class="badge bg-warning text-dark">En espera</span>
+                            {% elif ticket.estado == 'aprobado' %}
+                                <span class="badge bg-success">Aprobado</span>
+                            {% else %}
+                                <span class="badge bg-danger">Rechazado</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <a href="{% url 'ticket_detalle' ticket.pk %}" class="btn btn-sm btn-outline-primary">Ver Detalle</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center py-4 text-muted">
+                            Aún no has creado ningún ticket.
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
