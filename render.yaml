@@ -2,7 +2,7 @@ services:
   - type: web
     name: sistema-tickets-django
     env: python
-    buildCommand: ./build.sh
+    buildCommand: bash build.sh
     startCommand: gunicorn ticket_system.wsgi:application
     envVars:
       - key: PYTHON_VERSION
