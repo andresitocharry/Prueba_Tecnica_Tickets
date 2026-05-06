@@ -1,0 +1,12 @@
+{
+  "name": "sistema-tickets-django",
+  "version": "1.0.0",
+  "description": "Prueba Técnica - Sistema de Tickets",
+  "main": "manage.py",
+  "scripts": {
+    "docker:local": "docker-compose up --build",
+    "test": "python manage.py test tickets"
+  },
+  "author": "Andres Felipe Charry Camacho",
+  "license": "ISC"
+}

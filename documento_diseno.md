@@ -9,6 +9,11 @@
 ## Decisiones Técnicas
 Elegí **Django** porque es súper rápido para montar este tipo de sistemas. Usé la arquitectura que trae por defecto (MVT) y manejé todo con **plantillas HTML y Bootstrap**, así el código es fácil de leer y no se necesita un front separado.
 
+### Portabilidad y Despliegue
+Para asegurar que el proyecto funcione en cualquier entorno sin conflictos de dependencias, incluí soporte para **Docker** y **Docker Compose**. 
+
+Además, siguiendo las mejores prácticas que aplico en mi experiencia profesional actual (Programa Madre Canguro), implementé una orquestación de comandos mediante `package.json`. Esto permite usar comandos estandarizados como `npm run docker:local` para levantar el ambiente de pruebas de forma consistente entre todos los miembros del equipo, y facilita el despligue en un entorno de producción.
+
 ### Enfoque en UX/UI
 Aunque el sistema es sencillo, se puso especial cuidado en la interfaz para que fuera profesional y moderna:
 *   **Tipografía:** Uso de 'Inter' vía Google Fonts para una lectura más clara y estética.

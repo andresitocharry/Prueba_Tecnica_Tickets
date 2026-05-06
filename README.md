@@ -50,6 +50,30 @@ El sistema estará disponible en `http://127.0.0.1:8000/`.
 
 ---
 
+## Ejecución con Docker (Ambiente Local Estandarizado)
+
+Siguiendo buenas prácticas de desarrollo para garantizar un ambiente local consistente (metodología aplicada en entornos profesionales como el **Programa Madre Canguro**), se ha incluido un orquestador de comandos mediante `npm`.
+
+Si tiene Docker y Node.js instalados, puede levantar el proyecto con:
+
+```bash
+npm run docker:local
+```
+
+O si prefiere usar Docker directamente:
+
+```bash
+docker-compose up --build
+```
+
+Este comando:
+1. Construye la imagen de Python.
+2. Realiza las migraciones automáticamente.
+3. Carga los datos de prueba (`initial_data.json`).
+4. Inicia el servidor en el puerto 8000.
+
+---
+
 ## Ejecución de Tests
 
 Para verificar la integridad del sistema y las reglas de seguridad (privacidad de tickets y acceso), ejecute el siguiente comando:

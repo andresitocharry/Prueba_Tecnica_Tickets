@@ -48,3 +48,21 @@ class TicketSecurityTests(TestCase):
         # En la lista de A solo debe haber 1 ticket (el suyo)
         self.assertEqual(len(response.context['tickets']), 1)
         self.assertEqual(response.context['tickets'][0].titulo, "Ticket de A")
+
+class RegistrationTests(TestCase):
+    def test_user_registration(self):
+        """Verificar que un nuevo usuario puede registrarse y loguearse."""
+        url = reverse('registro')
+        data = {
+            'username': 'nuevo_usuario',
+            'password1': 'ComplexPass123!',
+            'password2': 'ComplexPass123!'
+        }
+        response = self.client.post(url, data)
+        
+        # Debe redirigir al login (302)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, reverse('login'))
+        
+        # Verificar que el usuario existe en la BD
+        self.assertTrue(User.objects.filter(username='nuevo_usuario').exists())
