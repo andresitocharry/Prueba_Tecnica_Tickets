@@ -12,7 +12,9 @@ Elegí **Django** porque es súper rápido para montar este tipo de sistemas. Us
 ### Portabilidad y Despliegue
 Para asegurar que el proyecto funcione en cualquier entorno sin conflictos de dependencias, incluí soporte para **Docker** y **Docker Compose**. 
 
-Además, siguiendo las mejores prácticas que aplico en mi experiencia profesional actual (Programa Madre Canguro), implementé una orquestación de comandos mediante `package.json`. Esto permite usar comandos estandarizados como `npm run docker:local` para levantar el ambiente de pruebas de forma consistente entre todos los miembros del equipo, y facilita el despligue en un entorno de producción.
+Además, siguiendo las mejores prácticas que aplico en mi experiencia profesional actual (Programa Madre Canguro), implementé una orquestación de comandos mediante `package.json`. Esto permite usar comandos estandarizados como `npm run docker:local` para levantar el ambiente de pruebas de forma consistente entre todos los miembros del equipo, y facilita el despliegue en un entorno de producción.
+
+Como prueba final de portabilidad, el sistema ha sido desplegado exitosamente en **Render**, demostrando su capacidad de funcionar en infraestructuras de nube modernas y serverless.
 
 ### Calidad de Código
 Para garantizar un código limpio y profesional, se configuró **Flake8** como linter. El proyecto sigue los estándares de la guía de estilo **PEP8**, lo cual se puede verificar ejecutando el comando `npm run lint`. Esto asegura que el código sea mantenible y libre de errores de formato o lógica básica.

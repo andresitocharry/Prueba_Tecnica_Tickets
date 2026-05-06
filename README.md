@@ -1,5 +1,16 @@
-# Sistema Básico de Tickets - Prueba Técnica
+# Sistema de Tickets de Soporte (Django)
 
+Este proyecto es una solución robusta y profesional para la gestión de tickets de soporte, desarrollada como parte de una prueba técnica.
+
+---
+
+## 🚀 Demo en Vivo
+Puede probar la aplicación desplegada en tiempo real en el siguiente enlace:
+**[https://prueba-tecnica-tickets.onrender.com/](https://prueba-tecnica-tickets.onrender.com/)**
+
+---
+
+## 🛠️ Tecnologías Utilizadas
 Este es un sistema sencillo de gestión de tickets desarrollado en Django para una prueba técnica. Permite a los usuarios autenticados crear tickets de soporte, listar sus propios tickets y ver el detalle de los mismos. El administrador puede gestionar los tickets desde el panel administrativo.
 
 ## Requisitos Previos
