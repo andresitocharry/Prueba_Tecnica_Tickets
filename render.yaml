@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sistema-tickets-django
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn ticket_system.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: DJANGO_SETTINGS_MODULE
+        value: ticket_system.settings
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        value: django-insecure-^^f_@ffd8+31l#$sgzrskijgt3q3ja5qr-7puqwuhju&m61c#)
