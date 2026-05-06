@@ -4,31 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Sistema de Tickets{% endblock %}</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #f8f9fa; }
-        .navbar { margin-bottom: 30px; }
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+        }
+        body { 
+            background-color: #f9fafb; 
+            font-family: 'Inter', sans-serif;
+            color: #111827;
+        }
+        .navbar { 
+            background-color: #ffffff !important;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            margin-bottom: 3rem;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: #4b5563 !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .badge {
+            padding: 0.5em 0.8em;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        .table thead th {
+            background-color: #f8fafc;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            border-top: none;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">TicketSys</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="fas fa-ticket-alt me-2"></i>TicketSys
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
                     {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ticket_listar' %}">Mis Tickets</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'ticket_crear' %}">Crear Ticket</a></li>
                         <li class="nav-item">
-                            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                            <a class="nav-link" href="{% url 'ticket_listar' %}">
+                                <i class="fas fa-list-ul me-1"></i> Mis Tickets
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'ticket_crear' %}">
+                                <i class="fas fa-plus-circle me-1"></i> Nuevo Ticket
+                            </a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <form action="{% url 'logout' %}" method="post" class="d-inline">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-link nav-link">Cerrar Sesión ({{ user.username }})</button>
+                                <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+                                    <i class="fas fa-sign-out-alt me-1"></i> Salir ({{ user.username }})
+                                </button>
                             </form>
                         </li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">Registrarse</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <a href="{% url 'registro' %}" class="btn btn-primary">
+                                <i class="fas fa-user-plus me-1"></i> Registrarse
+                            </a>
+                        </li>
                     {% endif %}
                 </ul>
             </div>

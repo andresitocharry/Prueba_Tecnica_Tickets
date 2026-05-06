@@ -9,6 +9,12 @@
 ## Decisiones Técnicas
 Elegí **Django** porque es súper rápido para montar este tipo de sistemas. Usé la arquitectura que trae por defecto (MVT) y manejé todo con **plantillas HTML y Bootstrap**, así el código es fácil de leer y no se necesita un front separado.
 
+### Enfoque en UX/UI
+Aunque el sistema es sencillo, se puso especial cuidado en la interfaz para que fuera profesional y moderna:
+*   **Tipografía:** Uso de 'Inter' vía Google Fonts para una lectura más clara y estética.
+*   **Iconografía:** Integración de FontAwesome para dar contexto visual a las acciones y botones.
+*   **Diseño Limpio:** Uso de sombras suaves, bordes redondeados y una paleta de colores coherente para una experiencia de usuario superior.
+
 ### Categorías de los Tickets
 Propuse estas tres para empezar:
 *   **Soporte Técnico:** Para fallos del sistema.

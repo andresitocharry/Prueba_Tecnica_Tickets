@@ -66,7 +66,7 @@ Para facilitar la revisión, se han incluido los siguientes usuarios:
 
 ## Funcionalidades Implementadas
 
-- **Autenticación:** Inicio de sesión y cierre de sesión.
+- **Autenticación:** Inicio de sesión, cierre de sesión y registro de nuevos usuarios con encriptación de contraseñas.
 - **Gestión de Tickets:** Crear, listar y ver detalle de tickets propios.
 - **Panel Administrativo:** Gestión de categorías, cambio de estados de tickets y registro de respuestas administrativas.
-- **Seguridad:** Los usuarios solo pueden ver y acceder a los tickets que ellos mismos han creado.
+- **Seguridad:** Los usuarios solo pueden ver y acceder a los tickets que ellos mismos han creado. Hashing de contraseñas mediante PBKDF2/SHA256.

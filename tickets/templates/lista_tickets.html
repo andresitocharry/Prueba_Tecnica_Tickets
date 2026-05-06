@@ -4,52 +4,78 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>Mis Tickets</h2>
-    <a href="{% url 'ticket_crear' %}" class="btn btn-success">Crear Nuevo Ticket</a>
+    <h2 class="fw-bold">Mis Tickets</h2>
+    <a href="{% url 'ticket_crear' %}" class="btn btn-primary">
+        <i class="fas fa-plus me-1"></i> Nuevo Ticket
+    </a>
 </div>
 
-<div class="card shadow">
+<div class="card border-0 shadow-sm">
     <div class="card-body p-0">
-        <table class="table table-hover mb-0">
-            <thead class="table-light">
-                <tr>
-                    <th>Fecha</th>
-                    <th>Título</th>
-                    <th>Categoría</th>
-                    <th>Estado</th>
-                    <th class="text-center">Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for ticket in tickets %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead>
                     <tr>
-                        <td>{{ ticket.fecha_creacion|date:"d/m/Y H:i" }}</td>
-                        <td>{{ ticket.titulo }}</td>
-                        <td><span class="badge bg-secondary">{{ ticket.categoria.nombre }}</span></td>
-                        <td>
-                            {% if ticket.estado == 'abierto' %}
-                                <span class="badge bg-info text-dark">Abierto</span>
-                            {% elif ticket.estado == 'en_espera' %}
-                                <span class="badge bg-warning text-dark">En espera</span>
-                            {% elif ticket.estado == 'aprobado' %}
-                                <span class="badge bg-success">Aprobado</span>
-                            {% else %}
-                                <span class="badge bg-danger">Rechazado</span>
-                            {% endif %}
-                        </td>
-                        <td class="text-center">
-                            <a href="{% url 'ticket_detalle' ticket.pk %}" class="btn btn-sm btn-outline-primary">Ver Detalle</a>
-                        </td>
+                        <th class="ps-4">Fecha</th>
+                        <th>Título</th>
+                        <th>Categoría</th>
+                        <th>Estado</th>
+                        <th class="text-center pe-4">Acción</th>
                     </tr>
-                {% empty %}
-                    <tr>
-                        <td colspan="5" class="text-center py-4 text-muted">
-                            Aún no has creado ningún ticket.
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for ticket in tickets %}
+                        <tr>
+                            <td class="ps-4 text-muted small">
+                                <i class="far fa-calendar-alt me-1"></i> {{ ticket.fecha_creacion|date:"d M, Y" }}
+                            </td>
+                            <td><span class="fw-medium">{{ ticket.titulo }}</span></td>
+                            <td>
+                                <span class="badge bg-light text-dark border">
+                                    <i class="fas fa-tag me-1 text-primary"></i> {{ ticket.categoria.nombre }}
+                                </span>
+                            </td>
+                            <td>
+                                {% if ticket.estado == 'abierto' %}
+                                    <span class="badge bg-info-subtle text-info border border-info-subtle">
+                                        <i class="fas fa-envelope-open me-1"></i> Abierto
+                                    </span>
+                                {% elif ticket.estado == 'en_espera' %}
+                                    <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">
+                                        <i class="fas fa-clock me-1"></i> En espera
+                                    </span>
+                                {% elif ticket.estado == 'aprobado' %}
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                        <i class="fas fa-check-circle me-1"></i> Aprobado
+                                    </span>
+                                {% else %}
+                                    <span class="badge bg-danger-subtle text-danger border border-danger-subtle">
+                                        <i class="fas fa-times-circle me-1"></i> Rechazado
+                                    </span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center pe-4">
+                                <a href="{% url 'ticket_detalle' ticket.pk %}" class="btn btn-sm btn-light border">
+                                    Ver detalle
+                                </a>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center py-5">
+                                <div class="text-muted mb-3">
+                                    <i class="fas fa-ticket-alt fa-3x mb-3 opacity-25"></i>
+                                    <p class="mb-0">Aún no has creado ningún ticket.</p>
+                                </div>
+                                <a href="{% url 'ticket_crear' %}" class="btn btn-primary btn-sm">
+                                    Crea tu primer ticket aquí
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}
