@@ -16,11 +16,11 @@ Aunque el sistema es sencillo, se puso especial cuidado en la interfaz para que 
 *   **Diseño Limpio:** Uso de sombras suaves, bordes redondeados y una paleta de colores coherente para una experiencia de usuario superior.
 
 ### Categorías de los Tickets
-Propuse estas tres para empezar:
-*   **Soporte Técnico:** Para fallos del sistema.
-*   **Facturación:** Dudas con pagos.
-*   **Sugerencia:** Ideas de los usuarios.
-Elegí estas porque son las que cualquier empresa necesita de entrada y separan bien los temas.
+Se definieron tres categorías fundamentales: **Soporte Técnico**, **Facturación** y **Sugerencia**.
+*   **Justificación:** Estas categorías cubren el espectro básico de necesidades de cualquier usuario. **Soporte** atiende fallos operativos, **Facturación** gestiona dudas administrativas y **Sugerencia** permite recolectar feedback. Este criterio garantiza una clasificación inicial clara que facilita el trabajo del administrador.
+
+### Valor Agregado: Registro de Usuarios
+Aunque el requerimiento inicial mencionaba que no era necesario, se decidió implementar un sistema de **Registro de Usuarios** con validación y encriptación de contraseñas. Esto se hizo para demostrar dominio sobre el flujo completo de autenticación y seguridad en Django, y para facilitar las pruebas a los evaluadores sin depender únicamente de usuarios pre-creados.
 
 ---
 
